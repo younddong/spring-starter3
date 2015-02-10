@@ -3,6 +3,7 @@ package com.spring.starter;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,5 +36,24 @@ public class HomeController {
 		
 		return "home";
 	}
-	
+
+    /**
+     * Simple view with random number
+     */
+    @RequestMapping(value = "/sj", method = RequestMethod.GET)
+    public String sj(Locale locale, Model model) {
+        logger.info("Welcome home! The client locale is {}.", locale);
+
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+        String formattedDate = dateFormat.format(date);
+
+        Random r = new Random();
+
+        model.addAttribute("randomNumber", r.nextInt(10));
+
+        return "home-sj";
+    }
+
 }
