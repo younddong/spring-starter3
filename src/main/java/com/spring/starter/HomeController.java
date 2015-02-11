@@ -36,6 +36,7 @@ public class HomeController {
 		
 		return "home";
 	}
+<<<<<<< HEAD
 	
 	@RequestMapping(value = "/show", method = RequestMethod.GET)
 	public String hj(Locale locale, Model model) {
@@ -47,4 +48,26 @@ public class HomeController {
 		
 		return "hj";
 	}
+=======
+
+    /**
+     * Simple view with random number
+     */
+    @RequestMapping(value = "/sj", method = RequestMethod.GET)
+    public String sj(Locale locale, Model model) {
+        logger.info("Welcome home! The client locale is {}.", locale);
+
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+        String formattedDate = dateFormat.format(date);
+
+        Random r = new Random();
+
+        model.addAttribute("randomNumber", r.nextInt(10));
+
+        return "home-sj";
+    }
+
+>>>>>>> origin/master
 }
