@@ -11,6 +11,6 @@
 	Hello world!  
 </h1>
 
-<P> 현재 서버 시간 : ${serverTime}. </P>
+<P> 오늘의 행운의 숫자는? ${random}.</P>
 </body>
 </html>
